@@ -1,0 +1,103 @@
+<!-- Adapted from source: http://drawvr.com/tron/ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tron WebVR Virtual Reality Experience A-Frame</title>
+<meta name="author" content="Donovan Kraeker">
+<meta name="description" content="Tron Inspired WebVR virtual reality example website experience using Aframe by DrawVR">
+<script src="aframe.min.js"></script>
+</head>
+<body>
+ <asset>
+  <a-mixin id="build" geometry="primitive: box" material="shader: standard; metalness: 0.6"></a-mixin>
+  <a-mixin id="caut" geometry="primitive: plane; height: 5; width: 3.2" material="shader: standard; transparent: true; side: double; src: url(images/caution.png)"></a-mixin>
+  <a-mixin id="post" geometry="primitive: box; depth: 0.3; height: 8; width: 0.3" material="shader: standard; color: #000;"></a-mixin>
+ </asset>
+
+ <a-scene fog="type: linear; color: #111; far: 2200; near: 0;">
+ <!-- I Got In -->
+
+<a-entity geometry="primitive: plane; height: 40; width: 50" position="0 50 180" material="shader: flat; transparent: true; side: double; src: url(images/robot.png);">
+ <a-animation attribute="position" from="10 50 180" to="-5 75 1000" ease="linear" dur="50000"></a-animation>
+</a-entity>
+
+<!-- Digital Worlds -->
+<a-curvedimage src="images/border.png" radius="500" position="0 5.8 8" theta-length="360" height="4" rotation="0 0 0" opacity="0.1" side="double" scale="0.5 3 10"></a-curvedimage>
+<a-entity geometry="primitive: plane; height: 9000; width: 12750" position="0 1900 -5" rotation="-90 0 0" material="shader: flat; side: double; src: url(images/circuit.png); repeat: 6 6"></a-entity>
+<a-entity geometry="primitive: plane; height: 8000; width: 8000" position="0 -1 -5" rotation="-90 0 0" material="shader: flat; src: url(images/tron-ground.png); repeat: 80 80"></a-entity>
+<a-entity geometry="primitive: plane; height: 2000; width: 40" position="0 985 -600" material="shader: flat; transparent: true; side: double; src: url(images/light-ray.png)"></a-entity>
+<a-entity geometry="primitive: plane; height: 2; width: 3" position="0.1 0.5 -599" material="shader: flat; transparent: true; side: double; src: url(images/tron-ring.png)"></a-entity>
+
+<!-- Vehicles -->
+<a-entity geometry="primitive: plane; height: 3.6; width: 8" position="-200 40.1 -790.4" rotation="-90 0 0" material="shader: flat; transparent: true; side: double; src: url(images/tron-vehicle.png)">
+ <a-animation attribute="position" from="-400 40.1 -790.4" to="500 40.1 -790.4" repeat="indefinite" ease="linear" dur="21000"></a-animation>
+</a-entity>
+<a-entity geometry="primitive: plane; height: 3.6; width: 8" position="-200 40.1 -45.4" rotation="-90 0 0" material="shader: flat; transparent: true; side: double; src: url(images/tron-vehicle.png)">
+ <a-animation attribute="position" from="-400 40.1 -45.5" to="500 40.1 -45.4" repeat="indefinite" ease="linear" dur="21000"></a-animation>
+</a-entity>
+<a-entity geometry="primitive: plane; height: 2.8; width: 6" position="25 13.1 -800" rotation="-90 90 0" material="shader: flat; transparent: true; side: double; src: url(images/tron-vehicle.png)">
+ <a-animation attribute="position" from="25 13.1 350" to="25 13.1 -250" repeat="indefinite" ease="linear" dur="26000"></a-animation>
+</a-entity>
+
+
+<!-- Highways -->
+<a-entity geometry="primitive: plane; height: 5000; width: 13" position="10 40 -45" rotation="-90 90 0"  material="shader: flat; transparent: true; side: double; src: url(images/highway.png);"></a-entity>
+<a-entity geometry="primitive: plane; height: 5000; width: 9" position="25 13 -5" rotation="-90 0 0"  material="shader: flat; transparent: true; side: double; src: url(images/highway.png);"></a-entity>
+
+<a-entity geometry="primitive: plane; height: 5000; width: 13" position="10 40 -790" rotation="-90 90 0"  material="shader: flat; transparent: true; side: double; src: url(images/highway.png);"></a-entity>
+
+<!-- Cautious Signs -->
+<a-entity mixin="caut" position="-129.8 4.5 -78" rotation="0 90 0"></a-entity>
+<a-entity mixin="post" position="-130 1 -78" rotation="0 90 0"></a-entity>
+<a-entity mixin="caut" position="-129.8 4.5 78" rotation="0 90 0"></a-entity>
+<a-entity mixin="post" position="-130 1 78" rotation="0 90 0"></a-entity>
+<a-entity mixin="caut" position="129.8 4.5 -44" rotation="0 270 0"></a-entity>
+<a-entity mixin="post" position="130 1 -44" rotation="0 270 0"></a-entity>
+<a-entity mixin="caut" position="129.8 4.5 180" rotation="0 270 0"></a-entity>
+<a-entity mixin="post" position="130 1 180" rotation="0 270 0"></a-entity>
+
+<!-- Buildings -->
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="110 69 1500" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-60 69 1500" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-100 69 700" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="85 145 800" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="135 69 500" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="-90 145 460" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-150 69 200" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="100 145 260" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-150 69 200" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="100 145 260" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="-102 145 0" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="150 69 47" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-150 69 -200" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="100 145 -95" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="150 69 -350" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="-100 145 -450" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 75; width: 75; height: 300;" position="80 145 -650" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-120 69 -650" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="120 69 -900" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 100; width: 100; height: 400;" position="-65 190 -1400" material="src: url(images/building.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="110 69 -1800" material="src: url(images/building2.png)"></a-entity>
+<a-entity mixin="build" geometry="depth: 150; width: 150; height: 140;" position="-60 69 -1800" material="src: url(images/building2.png)"></a-entity>
+
+<!-- Camera -->
+<a-entity sound="src: tron.mp3; autoplay: true; loop: true;">
+ <a-entity position="0 2 4" camera look-controls="enabled: true" cursor-visible="enabled: false" wasd-controls="enabled: true; acceleration: 1000">
+   </a-entity>
+</a-entity>
+
+      <!-- Lighting and background -->
+      <a-sky color="#061c1d"></a-sky>
+    </a-scene>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56782327-23', 'auto');  // For http://drawvr.com/tron/.
+  ga('send', 'pageview');
+</script>
+ </body>
+</html>
